@@ -1,4 +1,4 @@
-package main
+package echo
 
 import (
 	"fmt"
@@ -14,8 +14,8 @@ const (
 	BlueColor   = "\033[1;36m%s\033[0m"
 )
 
-func main() {
-	echoHandler := func(w http.ResponseWriter, req *http.Request) {
+func BuildHandler() func(w http.ResponseWriter, req *http.Request) {
+	return func(w http.ResponseWriter, req *http.Request) {
 		log.Printf(GrayColor, "starting request")
 
 		extractQueryRequest(w, req)
@@ -24,10 +24,6 @@ func main() {
 
 		log.Printf(GrayColor, "end request")
 	}
-
-	http.HandleFunc("/", echoHandler)
-	log.Println("Listing for requests at http:localhost:8000")
-	log.Fatal(http.ListenAndServe(":8000", nil))
 }
 
 func extractQueryRequest(w http.ResponseWriter, req *http.Request) {
