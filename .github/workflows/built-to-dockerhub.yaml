@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: DockerHub Build And Push
+      - name: DockerHub Build And Push Release Version
         id: buildAndPushImage
         uses: Abhishek-070/Dockerhub-Build-Push@v1.0
         with:
@@ -18,6 +18,17 @@ jobs:
           user_name: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           image_version: ${{ github.event.release.tag_name }}
+          docker_file: '.'
+
+      - name: DockerHub Build And Push Latest
+        id: buildAndPushImage
+        uses: Abhishek-070/Dockerhub-Build-Push@v1.0
+        with:
+          registry_url: 'docker.io'
+          repository_name: 'erikcc02/echo-server'
+          user_name: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          image_version: latest
           docker_file: '.'
 
       - name: Get pre step result output image_pull_url
