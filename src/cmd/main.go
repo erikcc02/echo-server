@@ -14,7 +14,7 @@ const ECHOSERVER_PORT string = "ECHOSERVER_PORT"
 
 func main() {
 
-	port := getAppPort(8003)
+	port := getAppPort(8000)
 
 	http.HandleFunc("/", echo.BuildHandler())
 	log.Printf("Listing for requests at http:localhost:%d\n", port)
