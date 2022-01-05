@@ -8,4 +8,5 @@ FROM golang:1.17.5-stretch AS runtime
 WORKDIR /echoapp
 COPY --from=build /app/echoserver .
 RUN chmod 777 ./echoserver
+EXPOSE 8000
 CMD [ "./echoserver" ]
