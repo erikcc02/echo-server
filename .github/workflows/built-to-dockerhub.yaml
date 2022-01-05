@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build Docker Image
+      - name: DockerHub Build And Push
         id: buildAndPushImage
-        uses: abhishek-070/docker-image-build-push-action@v1.0
+        uses: Abhishek-070/Dockerhub-Build-Push@v1.0
         with:
           registry_url: 'docker.io'
           repository_name: 'erikcc02/echo-server'
