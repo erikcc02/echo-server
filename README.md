@@ -29,3 +29,7 @@ to set the port that the application will run, set the value of the variable `EC
 ```bash
 docker run -it -p 8555:5000 -e ECHOSERVER_PORT=5000 echo-server
 ```
+
+## License
+
+[Read More](./LICENSE)
