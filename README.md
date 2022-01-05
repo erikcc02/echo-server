@@ -2,6 +2,10 @@
 
 An HTTP echo server designed for testing applications and proxies.
 
+![workflow dockerhub](https://github.com/erikcc02/echo-server/actions/workflows/built-to-dockerhub.yaml/badge.svg)
+
+
+
 ## Running
 
 ### Docker
