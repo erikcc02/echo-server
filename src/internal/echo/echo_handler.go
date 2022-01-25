@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
@@ -16,25 +15,25 @@ const (
 
 func BuildHandler() func(w http.ResponseWriter, req *http.Request) {
 	return func(w http.ResponseWriter, req *http.Request) {
-		log.Printf(GrayColor, "starting request")
+		fmt.Printf(GrayColor, "starting request\n")
 
 		extractQueryRequest(w, req)
 		extractHeaders(w, req)
 		extractBody(w, req)
 
-		log.Printf(GrayColor, "end request")
+		fmt.Printf(GrayColor, "end request\n")
 	}
 }
 
 func extractQueryRequest(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, "%s --> %s\n", req.Method, req.URL)
-	fmt.Printf(BlueColor, fmt.Sprintf("%s --> %s\n", req.Method, req.URL))
+	fmt.Printf(YellowColor, fmt.Sprintf("%s --> %s\n", req.Method, req.URL))
 }
 
 func extractHeaders(w http.ResponseWriter, req *http.Request) {
 	for k, v := range req.Header {
 		fmt.Fprintf(w, "%s: %s\n", k, v)
-		fmt.Printf(YellowColor, fmt.Sprintf("%s: %s\n", k, v))
+		fmt.Printf(BlueColor, fmt.Sprintf("%s: %s\n", k, v))
 	}
 }
 
