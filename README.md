@@ -10,17 +10,19 @@ An HTTP echo server designed for testing applications and proxies.
 
 ### Docker
 
-simple command:
+run the command:
 
 ```bash
-docker run erikcc02/echo-server
+docker run -p 8000:8000 erikcc02/echo-server
 ```
 
-mapping port:
+and call API via curl or web:
 
 ```bash
-docker run -p 8555:8000 erikcc02/echo-server
+curl -X POST http://localhost:8000/api/foo --data {'body':'any message'}
 ```
+
+![echo-server-demo](./images/demo.jpg)
 
 ## Configure echo server
 
